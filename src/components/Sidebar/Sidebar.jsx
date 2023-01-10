@@ -11,31 +11,44 @@ import PsychologyIcon from '@mui/icons-material/Psychology';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import { Link } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import { DarkModeContext } from '../../context/DarkMode';
+
 
 const Sidebar = () => {
+    const {switchToDark, switchToLight} = useContext(DarkModeContext)
+
   return (
     <>
     <div className='sidebar'>
         <div className="top">
-            <span className="logo">Admin</span>
+            <Link to='/' style={{textDecoration:'none'}}><span className="logo">Admin</span></Link>
         </div>
         <hr/>
         <div className="center">
             <ul>
                 <p className="title">MAIN</p>
+                <Link to='/' style={{textDecoration:'none'}}>
                 <li>
                     <DashboardIcon className='icon'/>
                     <span>Dashboard</span>
                 </li>
+                </Link>
                 <p className="title">LISTS</p>
+                <Link to='/users' style={{textDecoration:'none'}}>
                 <li>
                     <PersonIcon className='icon'/>
                     <span>Users</span>
                 </li>
+                </Link>
+                <Link to='/products' style={{textDecoration:'none'}}>
                 <li>
                     <StoreIcon className='icon'/>
                     <span>Products</span>
                 </li>
+                </Link>              
+                
                 <li>
                     <PaymentIcon className='icon'/>
                     <span>Orders</span>
@@ -78,8 +91,8 @@ const Sidebar = () => {
             </ul>
         </div>
         <div className="bottom">
-            <div className="colorOption"></div>
-            <div className="colorOption"></div>
+            <div className="colorOption" onClick={switchToLight}></div>
+            <div className="colorOption" onClick={switchToDark}></div>
         </div>
     </div>
     </>
