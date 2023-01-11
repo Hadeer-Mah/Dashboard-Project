@@ -7,12 +7,12 @@ import New from "./pages/New/New";
 import { productInputs, userInputs } from "./formData";
 import './Styles/Dark.scss'
 import { DarkModeContext } from "./context/DarkMode";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 
 function App() {
 
-  const {dark, setDark} = useContext(DarkModeContext)
+  const {dark} = useContext(DarkModeContext)
   return (
     <>
     <div className={dark ? "App dark": "App"}>
